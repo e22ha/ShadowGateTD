@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 4670299213423526678}
   - component: {fileID: 6231821580779844226}
   m_Layer: 5
-  m_Name: Story_Button
+  m_Name: Main_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
