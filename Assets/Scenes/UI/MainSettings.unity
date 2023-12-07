@@ -639,6 +639,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exit_button
       objectReference: {fileID: 0}
+    - target: {fileID: 3683059625731067158, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683059625731067158, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683059625731067158, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1312364809}
+    - target: {fileID: 3683059625731067158, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683059625731067158, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoMain
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683059625731067158, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683059625731067158, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4193383782471588932, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1840,8 +1868,9 @@ GameObject:
   - component: {fileID: 1312364807}
   - component: {fileID: 1312364806}
   - component: {fileID: 1312364805}
+  - component: {fileID: 1312364809}
   m_Layer: 5
-  m_Name: MainSettings
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1930,6 +1959,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1312364809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312364804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c8b4067ad9b8f499ea01bdb487aa4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1362133047
 GameObject:
   m_ObjectHideFlags: 0
