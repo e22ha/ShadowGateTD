@@ -8,6 +8,7 @@ public class MainMenuManager : MonoBehaviour
 {
     public void GoMain()
     {
+        PlayerPrefs.Save();
         SceneManager.LoadScene("MainMenu");
     }
 

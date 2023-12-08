@@ -978,7 +978,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0421\u0434\u0435\u043B\u0430\u043B\u0438\ne22ha lstaff\n"
+  m_text: "\u0421\u0434\u0435\u043B\u0430\u043B\u0438\ne22ha \u0438 lstaff\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6691d5c637669354a99b273fb7a3c376, type: 2}
   m_sharedMaterial: {fileID: 5014466548235364486, guid: 6691d5c637669354a99b273fb7a3c376, type: 2}
@@ -1016,8 +1016,8 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_wordSpacing: -20
+  m_lineSpacing: 48
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

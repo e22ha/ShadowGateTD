@@ -10,7 +10,7 @@ public class LevelUI_Manager : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject pauseMenu;
     public GameObject pauseBtn;
-    
+
     public void pauseMenuOn()
     {
         pauseUI.SetActive(true);

@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 560
       objectReference: {fileID: 0}
+    - target: {fileID: 991763141282080835, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3192708021955413374, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
       propertyPath: m_Name
       value: Settings_button
@@ -1583,6 +1587,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1595348976}
     m_Modifications:
+    - target: {fileID: 991763141282080835, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3192708021955413374, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
       propertyPath: m_Name
       value: Question_button
