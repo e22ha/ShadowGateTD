@@ -13,12 +13,16 @@ public class LevelUI_Manager : MonoBehaviour
 
     public void pauseMenuOn()
     {
+        Time.timeScale = 0;
+
         pauseUI.SetActive(true);
         pauseBtn.SetActive(false);
     }
 
     public void pauseMenuOff()
     {
+        Time.timeScale = 1;
+
         settingsMenu.SetActive(false);
         pauseUI.SetActive(false);
         pauseBtn.SetActive(true);

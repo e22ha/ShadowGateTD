@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
-{
+{   
     public void GoMain()
     {
         PlayerPrefs.Save();
