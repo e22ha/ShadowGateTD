@@ -24,7 +24,7 @@ public class MainMenuManager : MonoBehaviour
     
     public void GoStory()
     {
-        SceneManager.LoadScene("StoryMode");
+        SceneManager.LoadScene("StoryMenu");
     }
 
     public void GoChallenger()
