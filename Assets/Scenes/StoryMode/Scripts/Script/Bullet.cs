@@ -74,7 +74,6 @@ public class Bullet : MonoBehaviour
 
     private void Damage(Enemy target)
     {
-        PlayerStats.UpdateScore(_killPoint);
         target.SetDamage(_killPoint);
     }
 }

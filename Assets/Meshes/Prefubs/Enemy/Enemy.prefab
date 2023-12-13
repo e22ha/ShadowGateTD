@@ -119,6 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  life: 20
-  harm: 1
-  currentLife: 0
+  currentLife: 10

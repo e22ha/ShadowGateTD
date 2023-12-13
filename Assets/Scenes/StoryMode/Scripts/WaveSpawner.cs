@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -20,9 +19,6 @@ public class WaveSpawner : MonoBehaviour
     public float sepTime = 0.5f;
 
     [Header("UI")]
-    public TMP_Text time;
-    public TMP_Text timeShadow;
-
     public TMP_Text waveBarText;
     
     public GameObject pauseButton;
@@ -48,8 +44,6 @@ public class WaveSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        time.text = Mathf.Floor(_countdown + 1f).ToString();
-        timeShadow.text = Mathf.Floor(_countdown + 1f).ToString();
         if(_waveNumber < _maxWaveNumber)
         {
             if (_countdown <= 0f) 
