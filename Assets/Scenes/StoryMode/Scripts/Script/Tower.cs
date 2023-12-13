@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using Scenes.StoryMode.Scripts.Script;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;

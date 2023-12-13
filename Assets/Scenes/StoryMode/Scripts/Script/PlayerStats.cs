@@ -1,11 +1,12 @@
+using Scenes.StoryMode.Scripts.Script;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
     
     //script for update count of lives, money and score
-    
-    public static PlayerStats Instance { get; private set; }
+
+    private static PlayerStats Instance { get; set; }
     
     public static int Money;
     public int startMoney = 999;

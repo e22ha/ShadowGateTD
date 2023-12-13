@@ -1,27 +1,30 @@
 using TMPro;
 using UnityEngine;
 
-public class UpdateInfoCount : MonoBehaviour
+namespace Scenes.StoryMode.Scripts.Script
 {
-    public TMP_Text lives;
-    public TMP_Text money;
-
-    private void Start()
+    public class UpdateInfoCount : MonoBehaviour
     {
-        // Initial update when the script is enabled
-        UpdateUI();
-    }
+        public TMP_Text lives;
+        public TMP_Text money;
 
-    private void FixedUpdate()
-    {
-        // Update UI in FixedUpdate
-        UpdateUI();
-    }
+        private void Start()
+        {
+            // Initial update when the script is enabled
+            UpdateUI();
+        }
 
-    public void UpdateUI()
-    {
-        // Update lives and money UI
-        lives.text = PlayerStats.Lives.ToString("D2");
-        money.text = PlayerStats.Money.ToString("D2");
+        private void FixedUpdate()
+        {
+            // Update UI in FixedUpdate
+            UpdateUI();
+        }
+
+        public void UpdateUI()
+        {
+            // Update lives and money UI
+            lives.text = PlayerStats.Lives.ToString("D2");
+            money.text = PlayerStats.Money.ToString("D2");
+        }
     }
 }

@@ -1,3 +1,4 @@
+using Scenes.StoryMode.Scripts.Script;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour

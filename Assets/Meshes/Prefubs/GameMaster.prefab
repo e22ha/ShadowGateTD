@@ -9,12 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1077736825164465952}
-  - component: {fileID: 2733370716868852823}
   - component: {fileID: 8299658467269355045}
+  - component: {fileID: 6089493886214327680}
   - component: {fileID: 6343956436359267094}
   - component: {fileID: 7091882373843708183}
   - component: {fileID: 6618195268798431766}
-  - component: {fileID: 8889876821550557171}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -37,22 +36,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2733370716868852823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3725867664225220578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d0e4fbdf32c73249838247718d126be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listWaveWithCountEnemies:
-  - {x: 5, y: 0}
-  - {x: 5, y: 0}
-  mapSize: {x: 8, y: 4}
 --- !u!114 &8299658467269355045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,7 +50,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMoney: 400
   startLives: 20
-  startScore: 0
+  updateInfoCount: {fileID: 6089493886214327680}
+--- !u!114 &6089493886214327680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3725867664225220578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e066bf01de8b4e8e8e62e06eb0666b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: {fileID: 0}
+  money: {fileID: 0}
 --- !u!114 &6343956436359267094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,13 +92,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1370266a8a40649bdf415c5eb5fb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enmyPrefab: {fileID: 5040326324094954121, guid: 42b2e136f453e45ef8c3dd27618b6f44, type: 3}
-  enmyFlyPrefab: {fileID: 5040326324094954121, guid: 42b2e136f453e45ef8c3dd27618b6f44, type: 3}
+  enemyPrefab: {fileID: 0}
+  enemyFlyPrefab: {fileID: 0}
   spanPoint: {fileID: 0}
-  sepTime: 0.5
-  time: {fileID: 0}
-  timeShadow: {fileID: 0}
+  waveBarText: {fileID: 0}
   pauseButton: {fileID: 0}
+  levelConfig: {fileID: 0}
 --- !u!114 &6618195268798431766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,18 +110,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d837f2183a302b244a22a6d726f19e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8889876821550557171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3725867664225220578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffd48072fc972458d83b81674367ce87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winMenu: {fileID: 0}
-  loseMenu: {fileID: 0}
-  fpsBlock: {fileID: 0}
