@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04edc66fae134c1b9eb9f2e873954a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerButtonPrefab: {fileID: 3226500581013915216, guid: 6098dde1652654f09b6ea3cafb1c0083, type: 3}
 --- !u!114 &822072215780212591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1058c4abb6eeb4cd281407aceb20c2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yOffset: 0
+  yOffset: -0.5
 --- !u!1 &8998474263565414034
 GameObject:
   m_ObjectHideFlags: 0

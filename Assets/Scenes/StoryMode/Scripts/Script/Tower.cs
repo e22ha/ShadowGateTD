@@ -103,7 +103,7 @@ public class Tower : MonoBehaviour
         //Vector3 rotation = Quaternion.Lerp(head.rotation, lookRotation, Time.deltaTime*speedRotation).eulerAngles;
         //head.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        Debug.Log("f: "+_fireCountdown);
+        // Debug.Log("f: "+_fireCountdown);
 
         if (_fireCountdown <= 0f)
         {

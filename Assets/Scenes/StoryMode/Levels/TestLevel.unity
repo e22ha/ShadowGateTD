@@ -3848,7 +3848,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1295272481}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1313992496}
+        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
+        m_MethodName: SelectTowerPrefab
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 1313992496}
+        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
+        m_MethodName: BuildTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1295272481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4008,6 +4032,17 @@ MonoBehaviour:
   settingsMenu: {fileID: 1408315104}
   pauseMenu: {fileID: 301880790}
   pauseBtn: {fileID: 347516131}
+--- !u!114 &1313992496 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 864759433024953571, guid: a8e36e8ae97a04fc9933628efa8deb2b, type: 3}
+  m_PrefabInstance: {fileID: 478295773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04208dbdfc114ed7a33f355e378cb2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1348416867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5797,7 +5832,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1796944611}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1313992496}
+        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
+        m_MethodName: SelectTowerPrefab
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 1313992496}
+        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
+        m_MethodName: BuildTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1796944611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6718,7 +6777,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7148837005041472155}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1313992496}
+        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
+        m_MethodName: SelectTowerPrefab
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 1313992496}
+        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
+        m_MethodName: BuildTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7148837005041472155
 MonoBehaviour:
   m_ObjectHideFlags: 0
