@@ -37,6 +37,10 @@ public class PlayerStats : MonoBehaviour
         Money += money;
         UpdateUI();
     }
+    public static bool CanAfford(int cost)
+    {
+        return Money >= cost;
+    }
 
     public static void UpdateLives(int livePoint)
     {

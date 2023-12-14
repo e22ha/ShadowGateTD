@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1077736825164465952}
   - component: {fileID: 8299658467269355045}
   - component: {fileID: 6089493886214327680}
-  - component: {fileID: 6343956436359267094}
+  - component: {fileID: 864759433024953571}
   - component: {fileID: 7091882373843708183}
   - component: {fileID: 6618195268798431766}
   m_Layer: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: {fileID: 0}
   money: {fileID: 0}
---- !u!114 &6343956436359267094
+--- !u!114 &864759433024953571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,12 +74,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3725867664225220578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 156cc51196f477b4e83d2c0b5ba0bfa9, type: 3}
+  m_Script: {fileID: 11500000, guid: d04208dbdfc114ed7a33f355e378cb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseTowerPrefab: {fileID: 312356716449423310, guid: c3504bf983c394c4ab7246cd3ee2fb7f, type: 3}
-  coolTowerPrefab: {fileID: 3085119755094664275, guid: 709efb24bacc14727be7b4067f0abc5b, type: 3}
-  plusTowerPrefab: {fileID: 3191280035841769964, guid: e2efe7d06088b4f6b94a723c4dcda45d, type: 3}
+  prefabList: []
+  baseTowerPrefab: {fileID: 0}
+  coolTowerPrefab: {fileID: 0}
+  plusTowerPrefab: {fileID: 0}
 --- !u!114 &7091882373843708183
 MonoBehaviour:
   m_ObjectHideFlags: 0

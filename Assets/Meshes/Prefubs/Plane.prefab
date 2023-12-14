@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7728707665589692238}
   - component: {fileID: 3973900953054244801}
   - component: {fileID: 6040082478897317792}
-  - component: {fileID: 5625743234915026382}
+  - component: {fileID: 6351602534171101417}
+  - component: {fileID: 822072215780212591}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -106,7 +107,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5625743234915026382
+--- !u!114 &6351602534171101417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,6 +117,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04edc66fae134c1b9eb9f2e873954a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerButtonPrefab: {fileID: 3226500581013915216, guid: 6098dde1652654f09b6ea3cafb1c0083, type: 3}
+--- !u!114 &822072215780212591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756329794119467283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1058c4abb6eeb4cd281407aceb20c2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   yOffset: 0

@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class WayPoints : MonoBehaviour
+namespace Scenes.StoryMode.Scripts.Script
 {
-    public static Transform[] Points;
-
-    private void Awake()
+    public class WayPoints : MonoBehaviour
     {
-        Points = new Transform[transform.childCount];
-        for (var i = 0; i < Points.Length; i++)
+        public static Transform[] Points;
+
+        private void Awake()
         {
-            Points[i] = transform.GetChild(i);
-            Debug.Log($"x: {Points[i].transform.position.x}; y:{Points[i].transform.position.y}");
+            Points = new Transform[transform.childCount];
+            for (var i = 0; i < Points.Length; i++)
+            {
+                Points[i] = transform.GetChild(i);
+                // Debug.Log($"x: {Points[i].transform.position.x}; y:{Points[i].transform.position.y}");
+            }
         }
     }
 }

@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BuildManger : MonoBehaviour
 {
@@ -6,6 +9,7 @@ public class BuildManger : MonoBehaviour
     //Initialisation of a BuildManger that selects a tower and returns it for construction
     
     public static BuildManger Instance;
+    public List<GameObject> prefubList= new();
 
     private void Awake()
     {
@@ -15,6 +19,10 @@ public class BuildManger : MonoBehaviour
             return;
         }
         Instance = this;
+        
+        prefubList.Add(baseTowerPrefab);
+        prefubList.Add(coolTowerPrefab);
+        prefubList.Add(plusTowerPrefab);
     }
     
     public GameObject baseTowerPrefab;
@@ -22,6 +30,7 @@ public class BuildManger : MonoBehaviour
     public GameObject plusTowerPrefab;
 
     private GameObject _towerToBuild;
+    public Material highlightMaterial;
 
     public GameObject ReturnTowerForBuild()
     {

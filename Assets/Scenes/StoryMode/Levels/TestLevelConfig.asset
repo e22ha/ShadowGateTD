@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad5acb57b219e4807b50772cb1cd5d8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 44f18fa296d2f4d3c8e2bdd45eb2f068, type: 3}
   m_Name: TestLevelConfig
   m_EditorClassIdentifier: 
   waveConfigurations:
