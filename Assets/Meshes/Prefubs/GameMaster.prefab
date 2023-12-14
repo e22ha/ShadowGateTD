@@ -77,10 +77,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04208dbdfc114ed7a33f355e378cb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 89247c3e672744cd7a2a963c5c465886, type: 2}
   prefabList: []
-  baseTowerPrefab: {fileID: 0}
-  coolTowerPrefab: {fileID: 0}
-  plusTowerPrefab: {fileID: 0}
+  menu: {fileID: 0}
+  baseTowerPrefab: {fileID: 312356716449423310, guid: c3504bf983c394c4ab7246cd3ee2fb7f, type: 3}
+  coolTowerPrefab: {fileID: 3085119755094664275, guid: 709efb24bacc14727be7b4067f0abc5b, type: 3}
+  plusTowerPrefab: {fileID: 3191280035841769964, guid: e2efe7d06088b4f6b94a723c4dcda45d, type: 3}
 --- !u!114 &7091882373843708183
 MonoBehaviour:
   m_ObjectHideFlags: 0

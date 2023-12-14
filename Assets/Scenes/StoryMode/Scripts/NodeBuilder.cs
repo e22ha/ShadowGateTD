@@ -14,6 +14,9 @@ namespace Scenes.StoryMode.Scripts
         // List of tower prefabs
         public List<GameObject> prefabList = new List<GameObject>();
 
+        public GameObject menu;
+
+        
         private void Awake()
         {
             if (Instance != null)
@@ -113,20 +116,46 @@ namespace Scenes.StoryMode.Scripts
                 Debug.LogWarning("No node or tower prefab selected!");
             }
         }
+        
+        public bool IsNodeSelected(GameObject node)
+        {
+            return _selectedNode == node;
+        }
+        
+        public void DeselectNode()
+        {
+            if (_selectedNode != null)
+            {
+                ResetSelectedNode();
+            }
+        }
+        
+        private void ResetSelectedNode()
+        {
+            if (_selectedNode != null)
+            {
+                // Implement reset logic (e.g., revert color, scale)
+                var nodeRenderer = _selectedNode.GetComponent<Renderer>();
+                if (nodeRenderer != null)
+                {
+                    nodeRenderer.material = _originalMaterial;
+                }
+            }
 
+            _selectedNode = null;
+        }
+
+        private Material _originalMaterial;
         private void HighlightNode(GameObject node)
         {
-            // Assuming you have a material to use for highlighting
-
             if (node != null)
             {
                 var nodeRenderer = node.GetComponent<Renderer>();
 
                 if (nodeRenderer != null)
                 {
-                    var originalMaterial = nodeRenderer.material;
+                    _originalMaterial = nodeRenderer.material;
                     nodeRenderer.material = highlightMaterial;
-
                     // Optionally, you can use a coroutine to revert the material after a certain time
                     // StartCoroutine(RevertMaterialAfterDelay(nodeRenderer, originalMaterial, /* your delay */));
                 }
@@ -139,19 +168,6 @@ namespace Scenes.StoryMode.Scripts
             {
                 Debug.LogWarning("Node is null.");
             }
-        }
-
-        public Material HighlightMat { get; set; }
-
-        private void ResetSelectedNode()
-        {
-            if (_selectedNode != null)
-            {
-                // Implement reset logic (e.g., revert color, scale)
-            }
-
-            _selectedNode = null;
-            _selectedTowerPrefab = null;
         }
     }
 }
