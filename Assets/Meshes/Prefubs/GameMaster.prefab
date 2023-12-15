@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 864759433024953571}
   - component: {fileID: 7091882373843708183}
   - component: {fileID: 6618195268798431766}
+  - component: {fileID: 7067872364333489339}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -99,8 +100,8 @@ MonoBehaviour:
   enemyFlyPrefab: {fileID: 0}
   spanPoint: {fileID: 0}
   waveBarText: {fileID: 0}
-  pauseButton: {fileID: 0}
   levelConfig: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &6618195268798431766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,5 +112,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d837f2183a302b244a22a6d726f19e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7067872364333489339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3725867664225220578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2edb8ee20985a473e874a1c6683f7b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

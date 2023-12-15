@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using Scenes.StoryMode.LevelScripts.Script;
+using Scenes.StoryMode.Scripts;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Scenes.StoryMode.Scripts
+namespace Scenes.StoryMode.LevelScripts
 {
     public class NodeBuilder : MonoBehaviour
     {

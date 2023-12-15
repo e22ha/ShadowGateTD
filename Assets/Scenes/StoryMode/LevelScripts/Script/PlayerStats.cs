@@ -45,14 +45,9 @@ public class PlayerStats : MonoBehaviour
     public static void UpdateLives(int livePoint)
     {
         Lives -= livePoint;
-        Debug.Log("Hit!");
 
         // Update UI even if lives reach zero
         UpdateUI();
-
-        if (Lives > 0) return;
-        Debug.Log("You lose! lose window");
-        Time.timeScale = 0;
     }
 
     private static void UpdateUI()
@@ -60,4 +55,8 @@ public class PlayerStats : MonoBehaviour
         Instance.updateInfoCount.UpdateUI();
     }
 
+    public int GetLives()
+    {
+        return Lives;
+    }
 }

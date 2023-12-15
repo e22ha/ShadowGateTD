@@ -1,27 +1,40 @@
 ﻿using System.Collections;
+using Scenes.StoryMode.LevelScripts.Script;
+using Scenes.StoryMode.Scripts.Script;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Scenes.StoryMode.Scripts
+namespace Scenes.StoryMode.LevelScripts
 {
     public class WaveSpawner : MonoBehaviour
     {
         public Transform enemyPrefab;
         public Transform enemyFlyPrefab;
         public Transform spanPoint;
-    
+
         private float _countdown = 2f;
 
         private int _waveNumber;
         private int _maxWaveNumber;
 
-        [Header("UI")]
-        public TMP_Text waveBarText;
-    
-        public GameObject pauseButton;
+        [Header("UI")] public TMP_Text waveBarText;
 
-        public LevelConfig levelConfig;  // Reference to the level configuration asset
+        public LevelConfig levelConfig; // Reference to the level configuration asset
+        public GameManager gameManager; // Reference to the GameManager
+
+
+        private int _totalExpectedEnemies; // Total expected enemies in the current wave
+
+        public int TotalExpectedEnemies
+        {
+            get { return _totalExpectedEnemies; }
+        }
+
+        public int CurrentWaveNumber
+        {
+            get { return _waveNumber; }
+        }
 
         private void Start()
         {
@@ -29,8 +42,25 @@ namespace Scenes.StoryMode.Scripts
             _maxWaveNumber = levelConfig.waveConfigurations.Length;
             ControlWaveBar();
             Time.timeScale = 1f;
-        
+
             PlayerPrefs.SetInt("LastScene", SceneManager.GetActiveScene().buildIndex);
+
+
+            // Set the initial total expected enemies
+            SetTotalExpectedEnemies();
+        }
+
+
+        private void SetTotalExpectedEnemies()
+        {
+            _totalExpectedEnemies = 0;
+
+            for (var i = 0; i < _maxWaveNumber; i++)
+            {
+                _totalExpectedEnemies += levelConfig.waveConfigurations[i].numberOfEnemies +
+                                         levelConfig.waveConfigurations[i].numberOfFlyEnemies;
+            }
+            Debug.Log($"Total enemies: {_totalExpectedEnemies}");
         }
 
         private void ControlWaveBar()
@@ -42,41 +72,27 @@ namespace Scenes.StoryMode.Scripts
         {
             if (_waveNumber < _maxWaveNumber)
             {
-                if (_countdown <= 0f) 
+                if (_countdown <= 0f)
                 {
                     _countdown = levelConfig.waveConfigurations[_waveNumber].numberOfEnemies +
                                  levelConfig.waveConfigurations[_waveNumber].numberOfFlyEnemies +
                                  levelConfig.separationTime;
-                
+
                     StartCoroutine(SpawnWave(_waveNumber));
                     _waveNumber++;
                     ControlWaveBar();
-                }   
+                }
             }
             else
             {
-                // GameStatusControl.WaveIsOver = true;
+                // Notify the GameManager that the last wave is completed
+                LastWaveCompleted = true;
             }
-        
+
             _countdown -= Time.deltaTime;
         }
-    
 
-        public void SkipTime()
-        {
-            _countdown = 0f;
-        }
-
-        public void Pause()
-        {
-            Time.timeScale = Time.timeScale >= 1 ? 0 : 1;
-        }
-
-        public void TimeMultiplier()
-        {
-            Time.timeScale = 1f;
-            Time.timeScale *= (Time.timeScale == 1f) ? 2f : 1f;
-        }
+        public bool LastWaveCompleted { get; set; }
 
         private IEnumerator SpawnWave(int waveNumber)
         {
@@ -85,6 +101,7 @@ namespace Scenes.StoryMode.Scripts
                 SpawnEnemy(0);
                 yield return new WaitForSeconds(levelConfig.separationTime);
             }
+
             for (var j = 0; j < levelConfig.waveConfigurations[waveNumber].numberOfFlyEnemies; j++)
             {
                 SpawnEnemy(1);
@@ -97,14 +114,27 @@ namespace Scenes.StoryMode.Scripts
             switch (type)
             {
                 case 0:
-                    Instantiate(enemyPrefab, spanPoint.position, spanPoint.rotation);
+                    var enemy = Instantiate(enemyPrefab, spanPoint.position, spanPoint.rotation).GetComponent<Enemy>();
+                    enemy.OnDefeated += OnEnemyDefeated; // Subscribe to the event
+                    enemy.OnNotDefeated += OnEnemyNotDefeated; // Subscribe to the event
                     break;
                 case 1:
-                    Instantiate(enemyFlyPrefab, spanPoint.position, spanPoint.rotation);
+                    var enemyFly = Instantiate(enemyFlyPrefab, spanPoint.position, spanPoint.rotation)
+                        .GetComponent<Enemy>();
+                    enemyFly.OnDefeated += OnEnemyDefeated; // Subscribe to the event
+                    enemyFly.OnNotDefeated += OnEnemyNotDefeated; // Subscribe to the event
                     break;
             }
+        }
 
-            // GameStatusControl.CountEnemies++;
+        // Event handler for enemy defeated event
+        private void OnEnemyDefeated()
+        {
+            gameManager.EnemyDefeated();
+        } 
+        private void OnEnemyNotDefeated()
+        {
+            gameManager.EnemyNotDefeated();
         }
     }
 }

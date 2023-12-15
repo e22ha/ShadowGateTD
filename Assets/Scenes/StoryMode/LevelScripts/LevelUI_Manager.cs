@@ -50,7 +50,6 @@ public class LevelUI_Manager : MonoBehaviour
 
     public void restartGame()
     {
-
     }
 
     public void PressStarsButton(int _starsNum)
