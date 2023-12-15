@@ -15,7 +15,6 @@ namespace Scenes.StoryMode.Scripts
         public List<GameObject> prefabList = new List<GameObject>();
 
         public GameObject menu;
-
         
         private void Awake()
         {
@@ -47,6 +46,7 @@ namespace Scenes.StoryMode.Scripts
             ResetSelectedNode();
             HighlightNode(node);
             _selectedNode = node;
+            ShowTowerButtons(true);
         }
 
         public string GetTowerName(int towerIndex)
@@ -72,6 +72,8 @@ namespace Scenes.StoryMode.Scripts
 
             return "Unknown Tower";
         }
+        
+        
         public void SelectTowerPrefab(int towerIndex)
         {
             if (towerIndex >= 0 && towerIndex < prefabList.Count)
@@ -117,6 +119,11 @@ namespace Scenes.StoryMode.Scripts
             }
         }
         
+        private void ShowTowerButtons(bool active)
+        {
+            menu.SetActive(active);
+        }
+        
         public bool IsNodeSelected(GameObject node)
         {
             return _selectedNode == node;
@@ -141,7 +148,7 @@ namespace Scenes.StoryMode.Scripts
                     nodeRenderer.material = _originalMaterial;
                 }
             }
-
+            ShowTowerButtons(false);
             _selectedNode = null;
         }
 
