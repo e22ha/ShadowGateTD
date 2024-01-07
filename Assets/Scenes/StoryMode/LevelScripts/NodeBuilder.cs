@@ -15,8 +15,6 @@ namespace Scenes.StoryMode.LevelScripts
         // List of tower prefabs
         public List<GameObject> prefabList = new List<GameObject>();
 
-        public GameObject menu;
-        
         private void Awake()
         {
             if (Instance != null)
@@ -24,6 +22,7 @@ namespace Scenes.StoryMode.LevelScripts
                 Debug.LogError("More than one NodeBuilder in the scene!");
                 return;
             }
+
             Instance = this;
 
             // Add your tower prefabs to the list
@@ -35,19 +34,21 @@ namespace Scenes.StoryMode.LevelScripts
         public GameObject baseTowerPrefab;
         public GameObject coolTowerPrefab;
         public GameObject plusTowerPrefab;
-        
+
         // Reference to the selected node
         private GameObject _selectedNode;
+        private GameObject _canvas;
 
         // Reference to the selected tower prefab
         private GameObject _selectedTowerPrefab;
 
-        public void SelectNode(GameObject node)
+        public void SelectNode(GameObject node, GameObject canvas)
         {
-            ResetSelectedNode();
-            HighlightNode(node);
+            ResetSelectedNode(_selectedNode, _canvas);
+            _canvas = canvas;
             _selectedNode = node;
-            ShowTowerButtons(true);
+            HighlightNode();
+            ShowTowerButtons(true, _canvas);
         }
 
         public string GetTowerName(int towerIndex)
@@ -73,13 +74,14 @@ namespace Scenes.StoryMode.LevelScripts
 
             return "Unknown Tower";
         }
-        
-        
+
+
         public void SelectTowerPrefab(int towerIndex)
         {
             if (towerIndex >= 0 && towerIndex < prefabList.Count)
             {
                 _selectedTowerPrefab = prefabList[towerIndex];
+                Debug.Log($"Selected tower name is {_selectedTowerPrefab.name}");
             }
             else
             {
@@ -89,20 +91,26 @@ namespace Scenes.StoryMode.LevelScripts
 
         public void BuildTower()
         {
+            Debug.Log("in build func 0");
             if (_selectedNode != null && _selectedTowerPrefab != null)
             {
+                Debug.Log("in build func 1");
                 var nodeOccupancy = _selectedNode.GetComponent<NodeOccupancy>();
 
                 if (!nodeOccupancy.IsOccupied)
                 {
+                    Debug.Log("in build func 2");
                     var towerPrice = _selectedTowerPrefab.GetComponent<Tower>().price;
 
                     if (PlayerStats.CanAfford(towerPrice))
                     {
+                        Debug.Log("in build func 3");
                         PlayerStats.UpdateMoney(-towerPrice);
-                        Instantiate(_selectedTowerPrefab, _selectedNode.transform.position + Vector3.up * nodeOccupancy.yOffset, _selectedNode.transform.rotation);
+                        Instantiate(_selectedTowerPrefab,
+                            _selectedNode.transform.position + Vector3.up * nodeOccupancy.yOffset,
+                            _selectedNode.transform.rotation);
                         nodeOccupancy.MarkOccupied();
-                        ResetSelectedNode();
+                        ResetSelectedNode(_selectedNode, _canvas);
                     }
                     else
                     {
@@ -119,46 +127,53 @@ namespace Scenes.StoryMode.LevelScripts
                 Debug.LogWarning("No node or tower prefab selected!");
             }
         }
-        
-        private void ShowTowerButtons(bool active)
+
+        private void ShowTowerButtons(bool active, GameObject canvas)
         {
-            menu.SetActive(active);
+            canvas.SetActive(active);
         }
-        
+
         public bool IsNodeSelected(GameObject node)
         {
             return _selectedNode == node;
         }
-        
+
         public void DeselectNode()
         {
             if (_selectedNode != null)
             {
-                ResetSelectedNode();
+                ResetSelectedNode(_selectedNode, _canvas);
             }
         }
-        
-        private void ResetSelectedNode()
+
+        private void ResetSelectedNode(GameObject node, GameObject canvas)
         {
-            if (_selectedNode != null)
+            if (node != null)
             {
                 // Implement reset logic (e.g., revert color, scale)
-                var nodeRenderer = _selectedNode.GetComponent<Renderer>();
+                var nodeRenderer = node.GetComponent<Renderer>();
                 if (nodeRenderer != null)
                 {
                     nodeRenderer.material = _originalMaterial;
                 }
             }
-            ShowTowerButtons(false);
+
+            if (canvas != null)
+            {
+                ShowTowerButtons(false, canvas);
+            }
+
             _selectedNode = null;
+            _canvas = null;
         }
 
         private Material _originalMaterial;
-        private void HighlightNode(GameObject node)
+
+        private void HighlightNode()
         {
-            if (node != null)
+            if (_selectedNode != null)
             {
-                var nodeRenderer = node.GetComponent<Renderer>();
+                var nodeRenderer = _selectedNode.GetComponent<Renderer>();
 
                 if (nodeRenderer != null)
                 {

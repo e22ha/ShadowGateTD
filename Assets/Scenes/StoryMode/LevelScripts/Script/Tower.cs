@@ -64,23 +64,11 @@ namespace Scenes.StoryMode.LevelScripts.Script
                 var enemy = nearestEnemy.GetComponent<Enemy>();
                 if (enemy != null)
                 {
-                    // Debug.Log("Enemy != null");
-                    // Debug.Log("sh: "+ shortestDist);
-                    if (shortestDist <= range)
-                    {
-                        // Debug.Log("shortestDist");
-                        _target = enemy;
-                        // Debug.Log("found");
-                    }
-                    else
-                    {
-                        // Debug.Log("not found");
-                        _target = null;
-                    }
+                    _target = shortestDist <= range ? enemy :
+                        null;
                 }
                 else
                 {
-                    // Debug.Log("not found");
                     _target = null;
                 }
             }

@@ -2136,7 +2136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -74.99988, y: 49.999996}
+  m_AnchoredPosition: {x: -75, y: 50}
   m_SizeDelta: {x: 498, y: 150}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &693021514
@@ -2615,13 +2615,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25747016, y: 0, z: 0, w: 0.9662863}
-  m_LocalPosition: {x: 0.35, y: 2.15, z: -3.5}
+  m_LocalRotation: {x: 0.44986463, y: 0, z: 0, w: 0.8930968}
+  m_LocalPosition: {x: 0.35, y: 2.79, z: -2.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 29.84, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 53.47, y: 0, z: 0}
 --- !u!1 &999951031
 GameObject:
   m_ObjectHideFlags: 0
@@ -6721,10 +6721,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6351602534171101417, guid: 92ef3a8b68e8343a4ae5162b9690b1c7, type: 3}
-      propertyPath: shop_menu
+    - target: {fileID: 4033065547284105331, guid: 92ef3a8b68e8343a4ae5162b9690b1c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 693021512}
+      objectReference: {fileID: 1313992496}
+    - target: {fileID: 4033065547284105331, guid: 92ef3a8b68e8343a4ae5162b9690b1c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1313992496}
+    - target: {fileID: 6131860941123258652, guid: 92ef3a8b68e8343a4ae5162b9690b1c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1313992496}
+    - target: {fileID: 6131860941123258652, guid: 92ef3a8b68e8343a4ae5162b9690b1c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1313992496}
+    - target: {fileID: 6400740143521702481, guid: 92ef3a8b68e8343a4ae5162b9690b1c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1313992496}
+    - target: {fileID: 6400740143521702481, guid: 92ef3a8b68e8343a4ae5162b9690b1c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1313992496}
     - target: {fileID: 8998474263565414034, guid: 92ef3a8b68e8343a4ae5162b9690b1c7, type: 3}
       propertyPath: m_Name
       value: Plane
