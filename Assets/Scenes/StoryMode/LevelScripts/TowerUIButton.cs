@@ -1,3 +1,5 @@
+using System;
+using Scenes.StoryMode.LevelScripts.Script;
 using UnityEngine;
 
 namespace Scenes.StoryMode.LevelScripts
@@ -11,22 +13,26 @@ namespace Scenes.StoryMode.LevelScripts
             _node = targetNode;
         }
 
+        private Shop _shop;
+        
+        private void Start()
+        {
+            _shop = Shop.Instance;
+        }
+
         public void OnButton1Click()
         {
-            Debug.Log("Button 1 Clicked on Node: " + _node.gameObject.name);
-            // Add your logic for button 1 click
+            _shop.PurchaseTower(1, _node);
         }
 
         public void OnButton2Click()
         {
-            Debug.Log("Button 2 Clicked on Node: " + _node.gameObject.name);
-            // Add your logic for button 2 click
+            _shop.PurchaseTower(2, _node);
         }
 
         public void OnButton3Click()
         {
-            Debug.Log("Button 3 Clicked on Node: " + _node.gameObject.name);
-            // Add your logic for button 3 click
+            _shop.PurchaseTower(3, _node);
         }
     }
 }

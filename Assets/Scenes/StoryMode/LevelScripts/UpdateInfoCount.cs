@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Scenes.StoryMode.Scripts.Script
+namespace Scenes.StoryMode.LevelScripts.Script
 {
     public class UpdateInfoCount : MonoBehaviour
     {

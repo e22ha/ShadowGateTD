@@ -44,6 +44,8 @@ MonoBehaviour:
     prefab: {fileID: 8998474263565414034, guid: f1fc87b28b7e345fc8c7e3371326542c, type: 3}
   - nodeType: 2
     prefab: {fileID: 8998474263565414034, guid: 92ef3a8b68e8343a4ae5162b9690b1c7, type: 3}
+  startMoney: 500
+  startLives: 10
   fieldWidth: 6
   fieldHeight: 6
   separationTime: 0.5

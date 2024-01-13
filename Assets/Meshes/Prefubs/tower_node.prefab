@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeType: 1
-  towerUIPrefab: {fileID: 3435724438988737876}
+  towerUI: {fileID: 1550602692682345443}
 --- !u!114 &822072215780212591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +177,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 116777957569322147, guid: 961037fa1428e423ba09337ff8b3e2da, type: 3}
       propertyPath: m_Name
-      value: ui_btn_canvas
+      value: NodeUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857900309086656900, guid: 961037fa1428e423ba09337ff8b3e2da, type: 3}
+      propertyPath: m_Interactable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6895165797704277869, guid: 961037fa1428e423ba09337ff8b3e2da, type: 3}
       propertyPath: m_Pivot.x
@@ -259,16 +263,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8566755774234047398, guid: 961037fa1428e423ba09337ff8b3e2da, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874478074762107115, guid: 961037fa1428e423ba09337ff8b3e2da, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 961037fa1428e423ba09337ff8b3e2da, type: 3}
---- !u!1 &3435724438988737876 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 116777957569322147, guid: 961037fa1428e423ba09337ff8b3e2da, type: 3}
+--- !u!114 &1550602692682345443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4302095625162783252, guid: 961037fa1428e423ba09337ff8b3e2da, type: 3}
   m_PrefabInstance: {fileID: 3328377568260690423}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 007937a6031b4cad847c2a63d7f13b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8178617193242070682 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6895165797704277869, guid: 961037fa1428e423ba09337ff8b3e2da, type: 3}

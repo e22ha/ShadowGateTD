@@ -1,5 +1,6 @@
 // Node.cs
 
+using Scenes.StoryMode.Scripts;
 using UnityEngine;
 
 namespace Scenes.StoryMode.LevelScripts
@@ -16,17 +17,19 @@ namespace Scenes.StoryMode.LevelScripts
         }
 
         // Reference to the UI canvas prefab
-        public GameObject towerUIPrefab;
+        public TowerUIButton towerUI;
 
-        private Material originalMaterial;
+        private Material _originalMaterial;
         private TowerDefenseField _towerDefenseField;
-        private bool isSelected = false;
+        private bool _isSelected = false;
+        private NodeOccupancy _nodeOccupancy;
 
         private void Start()
         {
-            originalMaterial = GetComponent<Renderer>().material;
+            _originalMaterial = GetComponent<Renderer>().material;
             // Set the initial node type based on your logic
             SetNodeType(nodeType);
+            _nodeOccupancy = GetComponent<NodeOccupancy>();
         }
 
         public void SetNodeType(NodeType type)
@@ -42,6 +45,7 @@ namespace Scenes.StoryMode.LevelScripts
                 case NodeType.Tower:
                     // Set visuals for a tower node
                     // For example, you might change the color or add a tower model
+                    towerUI.SetNodeReference(this);
                     break;
                 case NodeType.Empty:
                     // Set visuals for an empty node
@@ -56,6 +60,8 @@ namespace Scenes.StoryMode.LevelScripts
 
         private void OnMouseDown()
         {
+            if(nodeType != NodeType.Tower) return;
+            if (_nodeOccupancy.IsOccupied) return;
             // Handle node click
             if (_towerDefenseField != null)
             {
@@ -69,20 +75,9 @@ namespace Scenes.StoryMode.LevelScripts
 
         public void ShowTowerUI()
         {
-            // Instantiate the tower UI prefab and attach it to the node
-            GameObject towerUI = Instantiate(towerUIPrefab, transform.position, Quaternion.identity);
-            towerUI.transform.parent = transform;
-
-            // Get the TowerUIButton script from the UI prefab
-            TowerUIButton towerUIButton = towerUI.GetComponent<TowerUIButton>();
-            if (towerUIButton != null)
-            {
-                // Set the node reference in the button script
-                towerUIButton.SetNodeReference(this);
-            }
-
+            towerUI.gameObject.SetActive(true);
             // Mark the node as selected
-            isSelected = true;
+            _isSelected = true;
         }
 
         public void HighlightNode(Material highlightMaterial)
@@ -101,18 +96,13 @@ namespace Scenes.StoryMode.LevelScripts
             var nodeRenderer = GetComponent<Renderer>();
             if (nodeRenderer != null)
             {
-                nodeRenderer.material = originalMaterial;
+                nodeRenderer.material = _originalMaterial;
             }
 
-            // Remove the tower UI if it exists
-            var existingUI = transform.Find("TowerUI");
-            if (existingUI != null)
-            {
-                Destroy(existingUI.gameObject);
-            }
+            towerUI.gameObject.SetActive(false);
 
             // Mark the node as deselected
-            isSelected = false;
+            _isSelected = false;
         }
     }
 }

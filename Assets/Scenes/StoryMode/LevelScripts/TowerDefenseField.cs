@@ -1,4 +1,5 @@
 // TowerDefenseField.cs
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -56,13 +57,13 @@ namespace Scenes.StoryMode.LevelScripts
             // и укажите также позицию для каждого нода.
             // Например, используйте данные из levelConfig.nodeConfigurations
             // в зависимости от значения row и column.
-            
+
             // Пример: предположим, что у вас есть конфигурация для путей:
             if (IsInPath(column, row))
             {
                 return Node.NodeType.Path;
             }
-            
+
             // Пример: предположим, что у вас есть конфигурация для мест размещения башен:
             if (IsInTowerPlace(column, row))
             {
@@ -83,6 +84,7 @@ namespace Scenes.StoryMode.LevelScripts
                     return true;
                 }
             }
+
             return false;
         }
 
@@ -96,6 +98,7 @@ namespace Scenes.StoryMode.LevelScripts
                     return true;
                 }
             }
+
             return false;
         }
 
@@ -113,7 +116,7 @@ namespace Scenes.StoryMode.LevelScripts
             // Если не найден префаб, верните null
             return null;
         }
-        
+
         public Material highlightMaterial;
         private Node _selectedNode;
 
@@ -142,13 +145,14 @@ namespace Scenes.StoryMode.LevelScripts
 
         public void OnNodeClick(Node node)
         {
+
             // Handle node click
             if (node.nodeType == Node.NodeType.Tower)
             {
                 if (_selectedNode == node)
                 {
                     // Deselect if the same node is clicked again
-                    DeselectNode();
+                    //DeselectNode();
                 }
                 else
                 {

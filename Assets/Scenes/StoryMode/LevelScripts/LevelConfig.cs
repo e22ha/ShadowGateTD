@@ -37,7 +37,8 @@ namespace Scenes.StoryMode.LevelScripts
         public TowerPlaceConfiguration towerPlaceConfiguration;
         public NodeConfiguration[] nodeConfigurations; // Добавляем массив для конфигураций узлов
 
-        
+        public int startMoney = 0;
+        public int startLives = 0;
         public int fieldWidth = 8;
         public int fieldHeight = 8;
         public float separationTime = 0.5f;

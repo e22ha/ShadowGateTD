@@ -28,7 +28,6 @@ namespace Scenes.StoryMode.LevelScripts.Script
         private void Start()
         {
             InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f);
-            PlayerStats.UpdateMoney(-price);
         }
 
         // Update is called once per frame
