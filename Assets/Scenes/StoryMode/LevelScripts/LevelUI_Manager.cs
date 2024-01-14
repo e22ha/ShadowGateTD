@@ -48,22 +48,23 @@ public class LevelUI_Manager : MonoBehaviour
         SceneManager.LoadScene("StoryMenu");
     }
 
-    public void restartGame()
+    public void RestartGame()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void PressStarsButton(int _starsNum)
+    public void PressStarsButton(int starsNum)
     {
-        currentStarsNum = _starsNum;
+        currentStarsNum = starsNum;
 
-        if(currentStarsNum > PlayerPrefs.GetInt("Lv" + levelIndex))
+        if (currentStarsNum > PlayerPrefs.GetInt("Lv" + levelIndex))
         {
-            PlayerPrefs.SetInt("Lv" + levelIndex, _starsNum);
+            PlayerPrefs.SetInt("Lv" + levelIndex, starsNum);
         }
 
         //MARKER Each level has saved their own stars number
         //CORE PLayerPrefs.getInt("KEY", "VALUE"); We can use the KEY to find Our VALUE
-        Debug.Log(PlayerPrefs.GetInt("Lv" + levelIndex, _starsNum));
+        Debug.Log(PlayerPrefs.GetInt("Lv" + levelIndex, starsNum));
 
         goMain();
     }
