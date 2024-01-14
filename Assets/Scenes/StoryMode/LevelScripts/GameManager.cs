@@ -1,5 +1,7 @@
+using System.Collections;
 using Scenes.StoryMode.LevelScripts.Script;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Scenes.StoryMode.LevelScripts
 {
@@ -29,7 +31,8 @@ namespace Scenes.StoryMode.LevelScripts
         // Method to update the count of defeated enemies
         private void UpdateDefeatedEnemiesCount()
         {
-            Debug.Log($"(not)Defeated Enemies: ({_notDefeatedEnemies}){_defeatedEnemies}/{waveSpawner.TotalExpectedEnemies}");
+            Debug.Log(
+                $"(not)Defeated Enemies: ({_notDefeatedEnemies}){_defeatedEnemies}/{waveSpawner.TotalExpectedEnemies}");
         }
 
         // Update is called once per frame
@@ -42,47 +45,26 @@ namespace Scenes.StoryMode.LevelScripts
             }
 
             // Check for win condition
-            if (AllWavesCompleted() && AllEnemiesDestroyed())
-            {
-                GameWin();
-            }
+            if(!AllWavesCompleted()) return;
+            if(AllEnemiesDestroyed()) GameWin();
         }
-// Method to handle game win
-        public void GameWin()
+
+        private void GameWin()
         {
             Debug.Log("YouWin!");
-
-            // Calculate the grade based on remaining lives
-            int remainingLives = playerStats.GetLives();
-            int grade = CalculateGrade(remainingLives);
-
-            // Print the grade to the console
+            var grade = CalculateGrade(playerStats.GetLives());
             Debug.Log($"Grade: {grade} stars");
-
-            // Display the grade in the UI or perform other win-related actions
-
-            Time.timeScale = 0;
+            StartCoroutine(DelayedLevelTransition());
         }
 
-        // Method to handle game over
-        public void GameOver()
+        private void GameOver()
         {
             Debug.Log("YouLose!");
-
-            // Calculate the grade based on remaining lives
-            int remainingLives = playerStats.GetLives();
-            int grade = CalculateGrade(remainingLives);
-
-            // Print the grade to the console
-            Debug.Log($"Grade: {grade} stars");
-
-            // Display the grade in the UI or perform other lose-related actions
-
-            Time.timeScale = 0;
+            StartCoroutine(DelayedLevelTransition());
         }
 
         // Method to calculate the grade based on remaining lives
-        private int CalculateGrade(int remainingLives)
+        private static int CalculateGrade(int remainingLives)
         {
             return remainingLives switch
             {
@@ -91,7 +73,15 @@ namespace Scenes.StoryMode.LevelScripts
                 _ => 3
             };
         }
+        
+        private IEnumerator DelayedLevelTransition()
+        {
+            // Подождем 2 секунды
+            yield return new WaitForSeconds(2f);
 
+            // 3. Загрузим сцену со всеми уровнями (StoryMenu)
+            SceneManager.LoadScene("StoryMenu");
+        }
 
         // Method to check if all waves are completed
         private bool AllWavesCompleted()

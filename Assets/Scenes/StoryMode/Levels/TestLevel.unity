@@ -274,7 +274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3683059625731067158, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: pauseMenuOff
+      value: PauseMenuOff
       objectReference: {fileID: 0}
     - target: {fileID: 3683059625731067158, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1873,7 +1873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6231821580779844226, guid: 2824d6ed7797978448d986eb8d4140ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: settingsMenuOff
+      value: SettingsMenuOff
       objectReference: {fileID: 0}
     - target: {fileID: 6231821580779844226, guid: 2824d6ed7797978448d986eb8d4140ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -5116,7 +5116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6231821580779844226, guid: 2824d6ed7797978448d986eb8d4140ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: goMain
+      value: GoMain
       objectReference: {fileID: 0}
     - target: {fileID: 6231821580779844226, guid: 2824d6ed7797978448d986eb8d4140ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

@@ -1,17 +1,19 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Scenes.StoryMode.LevelScripts
 {
     public class Bullet : MonoBehaviour
     {
-    
         //Bullet object class. Realisation of shot, impact, explosion and destruction of the bullet itself
-    
+
         private Enemy _target;
 
         private int _killPoint = 1;
 
         public float speed = 70f;
+
+        public float fadeTime = 1f;
 
         public GameObject impactEffect;
 
@@ -27,20 +29,23 @@ namespace Scenes.StoryMode.LevelScripts
         {
             if (_target == null)
             {
-                Destroy(gameObject);
+                // Если цель отсутствует, начинаем процесс исчезновения
+                StartCoroutine(FadeOut());
                 return;
             }
 
+            // Перемещаем пулю в сторону цели
             var dir = _target.transform.position - transform.position;
-            var distThisFrame = speed * Time.unscaledDeltaTime;
+            var distanceThisFrame = speed * Time.deltaTime;
 
-            if (dir.magnitude <= distThisFrame)
+            if (dir.magnitude <= distanceThisFrame)
             {
+                // Пуля достигла цели
                 HitTarget();
                 return;
             }
 
-            transform.Translate(dir.normalized * distThisFrame, Space.World);
+            transform.Translate(dir.normalized * distanceThisFrame, Space.World);
 
             transform.LookAt(_target.transform);
         }
@@ -77,6 +82,26 @@ namespace Scenes.StoryMode.LevelScripts
         private void Damage(Enemy target)
         {
             target.SetDamage(_killPoint);
+        }
+
+        IEnumerator FadeOut()
+        {
+            var elapsedTime = 0f;
+            var startColor = GetComponent<Renderer>().material.color;
+
+            while (elapsedTime < fadeTime)
+            {
+                // Интерполяция цвета для плавного затухания
+                var t = elapsedTime / fadeTime;
+                var lerpedColor = Color.Lerp(startColor, Color.clear, t);
+                GetComponent<Renderer>().material.color = lerpedColor;
+
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            // По завершении затухания уничтожаем объект пули
+            Destroy(gameObject);
         }
     }
 }

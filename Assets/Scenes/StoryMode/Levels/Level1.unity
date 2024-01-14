@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0320b139a64364759a8bd35b980517bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelConfig: {fileID: 11400000, guid: 9becf67eb9c684158862f4468f038030, type: 2}
+  levelConfig: {fileID: 11400000, guid: 032d3ce9657c547d9a94b4800b97d32a, type: 2}
   highlightMaterial: {fileID: 2100000, guid: 89247c3e672744cd7a2a963c5c465886, type: 2}
 --- !u!4 &187019952
 Transform:
@@ -295,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6231821580779844226, guid: 2824d6ed7797978448d986eb8d4140ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: settingsMenuOff
+      value: SettingsMenuOff
       objectReference: {fileID: 0}
     - target: {fileID: 6231821580779844226, guid: 2824d6ed7797978448d986eb8d4140ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1772a71b74a14424d8d619f7116aee6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelConfig: {fileID: 11400000, guid: 9becf67eb9c684158862f4468f038030, type: 2}
+  levelConfig: {fileID: 11400000, guid: 032d3ce9657c547d9a94b4800b97d32a, type: 2}
   updateInfoCount: {fileID: 781290939}
 --- !u!224 &425619481
 RectTransform:
@@ -621,6 +621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveSpawner: {fileID: 457785147}
   playerStats: {fileID: 425619480}
+  levelUIManager: {fileID: 781290940}
 --- !u!1 &431488086
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +705,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5040326324094954121, guid: 42b2e136f453e45ef8c3dd27618b6f44, type: 3}
   enemyFlyPrefab: {fileID: 1053108970594377976, guid: 0eaa15ce2379e4bfcaf74427e7cc0a74, type: 3}
   waveBarText: {fileID: 1898613729}
-  levelConfig: {fileID: 11400000, guid: 9becf67eb9c684158862f4468f038030, type: 2}
+  levelConfig: {fileID: 11400000, guid: 032d3ce9657c547d9a94b4800b97d32a, type: 2}
   gameManager: {fileID: 425619483}
 --- !u!1 &490044950
 GameObject:
@@ -2254,7 +2255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3683059625731067158, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: pauseMenuOff
+      value: PauseMenuOff
       objectReference: {fileID: 0}
     - target: {fileID: 3683059625731067158, guid: 9778ce71ef7f43940ac089b857297f31, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -3565,7 +3566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6231821580779844226, guid: 2824d6ed7797978448d986eb8d4140ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: goMain
+      value: GoMain
       objectReference: {fileID: 0}
     - target: {fileID: 6231821580779844226, guid: 2824d6ed7797978448d986eb8d4140ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
