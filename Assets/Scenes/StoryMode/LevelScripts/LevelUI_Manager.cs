@@ -45,7 +45,7 @@ public class LevelUI_Manager : MonoBehaviour
 
     public void goMain()
     {
-        SceneManager.LoadScene("StoryMenu");
+        SceneTransition.SwitchToScene("StoryMenu");
     }
 
     public void RestartGame()

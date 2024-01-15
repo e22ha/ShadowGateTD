@@ -27,11 +27,11 @@ public class UIManager : MonoBehaviour
 
     public void GoSetting()
     {
-        SceneManager.LoadScene("MainSettings");
+        SceneTransition.SwitchToScene("MainSettings");
     }
 
     public void GoMain()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneTransition.SwitchToScene("MainMenu");
     }
 }

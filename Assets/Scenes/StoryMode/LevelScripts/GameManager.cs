@@ -9,6 +9,7 @@ namespace Scenes.StoryMode.LevelScripts
     {
         public WaveSpawner waveSpawner;
         public PlayerStats playerStats;
+        public int levelIndex;
 
         private int _defeatedEnemies;
         private int _notDefeatedEnemies;
@@ -52,8 +53,20 @@ namespace Scenes.StoryMode.LevelScripts
         private void GameWin()
         {
             Debug.Log("YouWin!");
-            var grade = CalculateGrade(playerStats.GetLives());
-            Debug.Log($"Grade: {grade} stars");
+            // var grade = CalculateGrade(playerStats.GetLives());
+            // Debug.Log($"Grade: {grade} stars");
+
+            int starsNum = CalculateGrade(playerStats.GetLives());
+
+            int currentStarsNum = starsNum;
+
+            if (currentStarsNum > PlayerPrefs.GetInt("Lv" + levelIndex))
+            {
+                PlayerPrefs.SetInt("Lv" + levelIndex, starsNum);
+            }
+
+            Debug.Log(PlayerPrefs.GetInt("Lv" + levelIndex, starsNum));
+
             StartCoroutine(DelayedLevelTransition());
         }
 
@@ -80,7 +93,7 @@ namespace Scenes.StoryMode.LevelScripts
             yield return new WaitForSeconds(2f);
 
             // 3. Загрузим сцену со всеми уровнями (StoryMenu)
-            SceneManager.LoadScene("StoryMenu");
+            SceneTransition.SwitchToScene("StoryMenu");
         }
 
         // Method to check if all waves are completed

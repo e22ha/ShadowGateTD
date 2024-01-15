@@ -21,16 +21,16 @@ public class MainMenuManager : MonoBehaviour
     
     public void GoStory()
     {
-        SceneManager.LoadScene("StoryMenu");
+        SceneTransition.SwitchToScene("StoryMenu");
     }
 
     public void GoChallenger()
     {
-        SceneManager.LoadScene("ChallengerMode");
+        SceneTransition.SwitchToScene("ChallengerMode");
     }
 
     public void GoEditor()
     {
-        SceneManager.LoadScene("EditorMode");
+        SceneTransition.SwitchToScene("EditorMode");
     }
 }

@@ -65,7 +65,7 @@ namespace Scenes.StoryMode.MenuScripts
         {
             if(unlocked)
             {
-                SceneManager.LoadScene(_LevelName);
+                SceneTransition.SwitchToScene(_LevelName);
             }
         }
 
