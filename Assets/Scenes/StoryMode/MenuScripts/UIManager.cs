@@ -34,4 +34,14 @@ public class UIManager : MonoBehaviour
     {
         SceneTransition.SwitchToScene("MainMenu");
     }
+
+    public void GoShop()
+    {
+        SceneTransition.SwitchToScene("Shop");
+    }
+
+    public void GoMenu()
+    {
+        SceneTransition.SwitchToScene("StoryMenu");
+    }
 }

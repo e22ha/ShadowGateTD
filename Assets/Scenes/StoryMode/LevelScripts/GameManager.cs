@@ -53,10 +53,9 @@ namespace Scenes.StoryMode.LevelScripts
         private void GameWin()
         {
             Debug.Log("YouWin!");
-            // var grade = CalculateGrade(playerStats.GetLives());
-            // Debug.Log($"Grade: {grade} stars");
 
             int starsNum = CalculateGrade(playerStats.GetLives());
+            Debug.Log($"Grade: {starsNum} stars");
 
             int currentStarsNum = starsNum;
 
