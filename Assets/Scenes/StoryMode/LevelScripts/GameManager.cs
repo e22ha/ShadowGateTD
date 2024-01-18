@@ -13,6 +13,7 @@ namespace Scenes.StoryMode.LevelScripts
 
         private int _defeatedEnemies;
         private int _notDefeatedEnemies;
+        private bool _endAnnounced = false;
 
 
         public void EnemyNotDefeated()
@@ -39,6 +40,7 @@ namespace Scenes.StoryMode.LevelScripts
         // Update is called once per frame
         private void Update()
         {
+            if (_endAnnounced) return;
             // Check for lose condition
             if (playerStats.GetLives() <= 0)
             {
@@ -46,20 +48,20 @@ namespace Scenes.StoryMode.LevelScripts
             }
 
             // Check for win condition
-            if(!AllWavesCompleted()) return;
-            if(AllEnemiesDestroyed()) GameWin();
+            if (!AllWavesCompleted()) return;
+            if (AllEnemiesDestroyed()) GameWin();
         }
 
         private void GameWin()
         {
             Debug.Log("YouWin!");
 
-            int starsNum = CalculateGrade(playerStats.GetLives());
+            _endAnnounced = true;
+            
+            var starsNum = CalculateGrade(playerStats.GetLives());
             Debug.Log($"Grade: {starsNum} stars");
 
-            int currentStarsNum = starsNum;
-
-            if (currentStarsNum > PlayerPrefs.GetInt("Lv" + levelIndex))
+            if (starsNum > PlayerPrefs.GetInt("Lv" + levelIndex))
             {
                 PlayerPrefs.SetInt("Lv" + levelIndex, starsNum);
             }
@@ -72,6 +74,7 @@ namespace Scenes.StoryMode.LevelScripts
         private void GameOver()
         {
             Debug.Log("YouLose!");
+            _endAnnounced = true;
             StartCoroutine(DelayedLevelTransition());
         }
 
