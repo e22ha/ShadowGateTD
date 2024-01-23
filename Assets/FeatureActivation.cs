@@ -15,6 +15,16 @@ public class FeatureActivation : MonoBehaviour
         CheckAndActivateFeatures();
     }
 
+    public void UpdatePlayerPrefs(int index)
+    {
+        var key = PlayerPrefsKey + "_" + index;
+
+        // Сохраняем только что купленную фичу в PlayerPrefs
+        PlayerPrefs.SetInt(key, 0);
+        PlayerPrefs.Save();
+        CheckAndActivateFeatures();
+    }
+    
     private void CheckAndActivateFeatures()
     {
         // Проверка каждой фичи и активация соответствующей кнопки

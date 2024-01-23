@@ -684,6 +684,7 @@ GameObject:
   - component: {fileID: 425619480}
   - component: {fileID: 425619482}
   - component: {fileID: 425619483}
+  - component: {fileID: 425619484}
   m_Layer: 5
   m_Name: GameMaster
   m_TagString: Untagged
@@ -754,6 +755,20 @@ MonoBehaviour:
   waveSpawner: {fileID: 457785147}
   playerStats: {fileID: 425619480}
   levelIndex: 1
+--- !u!114 &425619484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425619478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b89f6068f31343d19377f6a71fb5697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Enemy
+  freezeDuration: 5
 --- !u!1 &431488086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,6 +1173,18 @@ MonoBehaviour:
           Assembly-CSharp
         m_MethodName: MoreMoney
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 781290941}
+        m_TargetAssemblyTypeName: FeatureActivation, Assembly-CSharp
+        m_MethodName: UpdatePlayerPrefs
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2374,6 +2401,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 781290941}
+        m_TargetAssemblyTypeName: FeatureActivation, Assembly-CSharp
+        m_MethodName: UpdatePlayerPrefs
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5629,21 +5668,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
-        m_MethodName: SelectTowerPrefab
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
-        m_MethodName: BuildTower
+      - m_Target: {fileID: 425619484}
+        m_TargetAssemblyTypeName: FreezeObjects, Assembly-CSharp
+        m_MethodName: FreezeObjectsWithTag
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5652,7 +5679,19 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
+      - m_Target: {fileID: 781290941}
+        m_TargetAssemblyTypeName: FeatureActivation, Assembly-CSharp
+        m_MethodName: UpdatePlayerPrefs
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1925248150
 MonoBehaviour:
   m_ObjectHideFlags: 0

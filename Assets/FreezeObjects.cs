@@ -10,7 +10,8 @@ public class FreezeObjects : MonoBehaviour
 
     public void FreezeObjectsWithTag()
     {
-        // Найти все игровые объекты с указанным тегом
+        PlayerPrefs.SetInt("ShopItems_2", 0);
+        PlayerPrefs.Save();
         var objectsToFreeze = GameObject.FindGameObjectsWithTag(targetTag);
 
         // Заморозить каждый объект
