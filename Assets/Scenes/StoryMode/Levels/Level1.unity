@@ -2760,8 +2760,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 736933577}
-  settingsMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
+  settingsMenu: {fileID: 2078068540}
+  pauseMenu: {fileID: 915363}
   pauseBtn: {fileID: 1833996675}
   levelIndex: 0
 --- !u!114 &781290941

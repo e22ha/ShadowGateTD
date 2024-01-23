@@ -72,6 +72,8 @@ namespace Scenes.StoryMode.LevelScripts
 
             Debug.Log(PlayerPrefs.GetInt("Lv" + levelIndex, starsNum));
 
+            Time.timeScale = 0f;
+
             WinWindow.SetActive(true);
         }
 
@@ -82,6 +84,8 @@ namespace Scenes.StoryMode.LevelScripts
             _endAnnounced = true;
 
             PlayerPrefs.SetInt("StarsTemp", 0);
+
+            Time.timeScale = 0f;
 
             LoseWindow.SetActive(true);
         }

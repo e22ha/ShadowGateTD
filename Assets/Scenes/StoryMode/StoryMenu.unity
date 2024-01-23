@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -667,6 +667,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1834919589674816238, guid: 1f80a075071213a4aa72ed5237a98d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6676415205227795062, guid: 1f80a075071213a4aa72ed5237a98d58, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 99796ef64c205e64ea0706da53748a6a, type: 3}
+    - target: {fileID: 6676415205227795062, guid: 1f80a075071213a4aa72ed5237a98d58, type: 3}
+      propertyPath: m_Color.a
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121363488224298321, guid: 1f80a075071213a4aa72ed5237a98d58, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1660,6 +1672,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1834919589674816238, guid: 1f80a075071213a4aa72ed5237a98d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6676415205227795062, guid: 1f80a075071213a4aa72ed5237a98d58, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 070c696921157fb429b4dd6248071d71, type: 3}
+    - target: {fileID: 6676415205227795062, guid: 1f80a075071213a4aa72ed5237a98d58, type: 3}
+      propertyPath: m_Color.a
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121363488224298321, guid: 1f80a075071213a4aa72ed5237a98d58, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7131,6 +7155,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6676415205227795062, guid: 1f80a075071213a4aa72ed5237a98d58, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 225f8925b01b5814ba1cf350021285fd, type: 3}
     - target: {fileID: 7121363488224298321, guid: 1f80a075071213a4aa72ed5237a98d58, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
