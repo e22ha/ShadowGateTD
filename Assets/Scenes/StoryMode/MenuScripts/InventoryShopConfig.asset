@@ -15,10 +15,10 @@ MonoBehaviour:
   shopItems:
   - itemName: Money
     cost: 1
-    isPurchased: 1
+    isPurchased: 0
   - itemName: Live
     cost: 2
-    isPurchased: 1
+    isPurchased: 0
   - itemName: Freez
     cost: 3
-    isPurchased: 1
+    isPurchased: 0

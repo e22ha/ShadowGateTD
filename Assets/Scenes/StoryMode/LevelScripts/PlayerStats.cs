@@ -62,5 +62,15 @@ namespace Scenes.StoryMode.LevelScripts.Script
         {
             return Lives;
         }
+
+        public void MoreMoney()
+        {
+            UpdateMoney(50);
+        }
+        
+        public void MoreLive()
+        {
+            UpdateLives(5);
+        }
     }
 }
