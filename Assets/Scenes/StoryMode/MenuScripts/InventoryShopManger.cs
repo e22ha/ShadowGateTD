@@ -1,61 +1,84 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using UnityEngine;
+
 namespace Scenes.StoryMode.MenuScripts
 {
-// ShopManager.cs
-    using System.Collections.Generic;
-    using UnityEngine;
-
     public class InventoryShopManager : MonoBehaviour
     {
-        public List<InventoryShopItem> shopItems;
+        private const string PlayerPrefsKey = "ShopItems";
 
-        private void Start()
+        public InventoryShopConfig shopConfig;
+        
+        private const string DiamondsPlayerPrefsKey = "PlayerDiamonds";
+
+        private void Awake()
         {
-            // Инициализация магазина (может быть загрузка из файла сохранения)
-            InitializeShop();
+            //remove in build, this is need to check shop function
+            PlayerPrefs.SetInt(DiamondsPlayerPrefsKey, 3);
+            Debug.Log($"Start diamonds - {GetPlayerDiamonds()}");
         }
 
-        private void InitializeShop()
+
+        // Add this method to your InventoryShopManager
+        private static int GetPlayerDiamonds()
         {
-            // Логика загрузки данных магазина из PlayerPrefs
-            for (var i = 0; i < shopItems.Count; i++)
-            {
-                // По умолчанию все товары не куплены
-                shopItems[i].isPurchased = PlayerPrefs.GetInt("ShopItem_" + i, 0) == 1;
-            }
+            return PlayerPrefs.GetInt(DiamondsPlayerPrefsKey, 5);
+        }
+
+        private static void SetPlayerDiamonds(int diamonds)
+        {
+            PlayerPrefs.SetInt(DiamondsPlayerPrefsKey, PlayerPrefs.GetInt(DiamondsPlayerPrefsKey) + diamonds);
+            PlayerPrefs.Save();
+        }
+
+
+        private void SaveShopData(int index)
+        {
+            // Получаем значение isPurchased для только что купленной фичи
+            var isPurchasedValue = shopConfig.shopItems[index].isPurchased;
+
+            // Создаем уникальный ключ для PlayerPrefs, например, используя индекс
+            var key = PlayerPrefsKey + "_" + index;
+
+
+            // Сохраняем только что купленную фичу в PlayerPrefs
+            PlayerPrefs.SetInt(key, isPurchasedValue ? 1 : 0);
+            PlayerPrefs.Save();
         }
 
         public void PurchaseItem(int index)
         {
-            // Покупка товара по индексу
-            if (index >= 0 && index < shopItems.Count)
+            if (index >= 0 && index < shopConfig.shopItems.Count)
             {
-                if (!shopItems[index].isPurchased)
+                if (!shopConfig.shopItems[index].isPurchased)
                 {
-                    // Здесь добавьте логику для списывания кристаллов и активации товара
-                    // Например, уменьшите количество кристаллов игрока
-                    // и активируйте соответствующую суперсилу
-                    shopItems[index].isPurchased = true;
+                    if (GetPlayerDiamonds() >= shopConfig.shopItems[index].cost)
+                    {
+                        shopConfig.shopItems[index].isPurchased = true;
 
-                    // Сохранение изменений (может потребоваться в зависимости от вашей реализации)
-                    SaveShopData(index);
+                        SetPlayerDiamonds(-shopConfig.shopItems[index].cost);
+
+                        Debug.Log($"Items '{shopConfig.shopItems[index].itemName}' is purchased");
+                        // Передаем индекс в SaveShopData
+                        SaveShopData(index);
+                    }
+                    else
+                    {
+                        Debug.Log("Not enough diamonds to purchase this item.");
+                    }
                 }
                 else
                 {
-                    Debug.Log("Этот товар уже куплен.");
+                    Debug.Log("This item is already purchased.");
                 }
             }
             else
             {
-                Debug.LogError("Некорректный индекс товара.");
+                Debug.LogError("Invalid item index.");
             }
         }
-
-        void SaveShopData(int index)
-        {
-            // Сохранение информации о покупке в PlayerPrefs
-            PlayerPrefs.SetInt("ShopItem_" + index, 1);
-            PlayerPrefs.Save();
-        }
     }
-
 }
