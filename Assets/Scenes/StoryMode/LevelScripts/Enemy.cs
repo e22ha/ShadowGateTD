@@ -105,5 +105,15 @@ namespace Scenes.StoryMode.LevelScripts
             OnNotDefeated?.Invoke();
             PlayerStats.UpdateLives(power);
         }
+
+        public void Freeze()
+        {
+            speed = 0f;
+        }
+
+        public void Unfreeze()
+        {
+            speed = 1f;
+        }
     }
 }

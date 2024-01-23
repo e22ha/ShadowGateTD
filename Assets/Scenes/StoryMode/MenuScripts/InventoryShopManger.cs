@@ -17,8 +17,8 @@ namespace Scenes.StoryMode.MenuScripts
         private void Awake()
         {
             //remove in build, this is need to check shop function
-            PlayerPrefs.SetInt(DiamondsPlayerPrefsKey, 3);
-            Debug.Log($"Start diamonds - {GetPlayerDiamonds()}");
+            // PlayerPrefs.SetInt(DiamondsPlayerPrefsKey, 3);
+            Debug.Log($"Count of diamonds - {GetPlayerDiamonds()}");
         }
 
 

@@ -11,7 +11,7 @@ namespace Scenes.StoryMode.MenuScripts
         {
             public string itemName;
             public int cost;
-            public bool isPurchased;
+            public bool isPurchased = false;
         }
 
         public List<ShopItem> shopItems = new List<ShopItem>();

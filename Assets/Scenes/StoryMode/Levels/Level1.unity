@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -684,6 +684,7 @@ GameObject:
   - component: {fileID: 425619480}
   - component: {fileID: 425619482}
   - component: {fileID: 425619483}
+  - component: {fileID: 425619484}
   m_Layer: 5
   m_Name: GameMaster
   m_TagString: Untagged
@@ -754,6 +755,20 @@ MonoBehaviour:
   waveSpawner: {fileID: 457785147}
   playerStats: {fileID: 425619480}
   levelIndex: 1
+--- !u!114 &425619484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425619478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b89f6068f31343d19377f6a71fb5697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Enemy
+  freezeDuration: 5
 --- !u!1 &431488086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,7 +1098,7 @@ GameObject:
   - component: {fileID: 539712456}
   - component: {fileID: 539712455}
   m_Layer: 5
-  m_Name: Shop_button
+  m_Name: Money_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1153,21 +1168,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
-        m_MethodName: SelectTowerPrefab
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
-        m_MethodName: BuildTower
+      - m_Target: {fileID: 425619480}
+        m_TargetAssemblyTypeName: Scenes.StoryMode.LevelScripts.Script.PlayerStats,
+          Assembly-CSharp
+        m_MethodName: MoreMoney
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1176,7 +1180,19 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
+      - m_Target: {fileID: 781290941}
+        m_TargetAssemblyTypeName: FeatureActivation, Assembly-CSharp
+        m_MethodName: UpdatePlayerPrefs
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &539712456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1938,6 +1954,7 @@ GameObject:
   - component: {fileID: 781290935}
   - component: {fileID: 781290939}
   - component: {fileID: 781290940}
+  - component: {fileID: 781290941}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2062,6 +2079,21 @@ MonoBehaviour:
   pauseMenu: {fileID: 1859973633}
   pauseBtn: {fileID: 1833996675}
   levelIndex: 0
+--- !u!114 &781290941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781290933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21bd808b091c4be48ea96b423dacc3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button1: {fileID: 539712455}
+  button2: {fileID: 897997723}
+  button3: {fileID: 1925248149}
 --- !u!1 &834579440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,7 +2322,7 @@ GameObject:
   - component: {fileID: 897997724}
   - component: {fileID: 897997723}
   m_Layer: 5
-  m_Name: Shop_button
+  m_Name: Live_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2360,21 +2392,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
-        m_MethodName: SelectTowerPrefab
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
-        m_MethodName: BuildTower
+      - m_Target: {fileID: 425619480}
+        m_TargetAssemblyTypeName: Scenes.StoryMode.LevelScripts.Script.PlayerStats,
+          Assembly-CSharp
+        m_MethodName: MoreLive
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2383,7 +2404,19 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
+      - m_Target: {fileID: 781290941}
+        m_TargetAssemblyTypeName: FeatureActivation, Assembly-CSharp
+        m_MethodName: UpdatePlayerPrefs
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &897997724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3298,7 +3331,7 @@ GameObject:
   - component: {fileID: 1280560013}
   - component: {fileID: 1280560014}
   m_Layer: 5
-  m_Name: Shop_menu
+  m_Name: Powers_menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5565,7 +5598,7 @@ GameObject:
   - component: {fileID: 1925248150}
   - component: {fileID: 1925248149}
   m_Layer: 5
-  m_Name: Shop_button
+  m_Name: Freezz_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5635,21 +5668,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
-        m_MethodName: SelectTowerPrefab
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Scenes.StoryMode.Scripts.NodeBuilder, Assembly-CSharp
-        m_MethodName: BuildTower
+      - m_Target: {fileID: 425619484}
+        m_TargetAssemblyTypeName: FreezeObjects, Assembly-CSharp
+        m_MethodName: FreezeObjectsWithTag
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5658,7 +5679,19 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
+      - m_Target: {fileID: 781290941}
+        m_TargetAssemblyTypeName: FeatureActivation, Assembly-CSharp
+        m_MethodName: UpdatePlayerPrefs
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1925248150
 MonoBehaviour:
   m_ObjectHideFlags: 0

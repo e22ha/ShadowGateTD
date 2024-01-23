@@ -62,5 +62,19 @@ namespace Scenes.StoryMode.LevelScripts.Script
         {
             return Lives;
         }
+
+        public void MoreMoney()
+        {
+            PlayerPrefs.SetInt("ShopItems_0", 0);
+            PlayerPrefs.Save();
+            UpdateMoney(50);
+        }
+        
+        public void MoreLive()
+        {
+            PlayerPrefs.SetInt("ShopItems_1", 0);
+            PlayerPrefs.Save();
+            UpdateLives(5);
+        }
     }
 }

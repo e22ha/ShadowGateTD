@@ -7149,7 +7149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7121363488224298321, guid: 1f80a075071213a4aa72ed5237a98d58, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoMain
+      value: GoShop
       objectReference: {fileID: 0}
     - target: {fileID: 7121363488224298321, guid: 1f80a075071213a4aa72ed5237a98d58, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
