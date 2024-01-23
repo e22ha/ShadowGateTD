@@ -7,6 +7,9 @@ namespace Scenes.StoryMode.LevelScripts
 {
     public class GameManager : MonoBehaviour
     {
+        public GameObject WinWindow;
+        public GameObject LoseWindow;
+
         public WaveSpawner waveSpawner;
         public PlayerStats playerStats;
         public int levelIndex;
@@ -52,13 +55,14 @@ namespace Scenes.StoryMode.LevelScripts
             if (AllEnemiesDestroyed()) GameWin();
         }
 
-        private void GameWin()
+        public void GameWin()
         {
             Debug.Log("YouWin!");
 
             _endAnnounced = true;
             
-            var starsNum = CalculateGrade(playerStats.GetLives());
+            int starsNum = CalculateGrade(playerStats.GetLives());
+            PlayerPrefs.SetInt("StarsTemp", starsNum);
             Debug.Log($"Grade: {starsNum} stars");
 
             if (starsNum > PlayerPrefs.GetInt("Lv" + levelIndex))
@@ -68,14 +72,18 @@ namespace Scenes.StoryMode.LevelScripts
 
             Debug.Log(PlayerPrefs.GetInt("Lv" + levelIndex, starsNum));
 
-            StartCoroutine(DelayedLevelTransition());
+            WinWindow.SetActive(true);
         }
 
         private void GameOver()
         {
             Debug.Log("YouLose!");
+
             _endAnnounced = true;
-            StartCoroutine(DelayedLevelTransition());
+
+            PlayerPrefs.SetInt("StarsTemp", 0);
+
+            LoseWindow.SetActive(true);
         }
 
         // Method to calculate the grade based on remaining lives
@@ -83,9 +91,9 @@ namespace Scenes.StoryMode.LevelScripts
         {
             return remainingLives switch
             {
-                >= 5 => 1,
-                >= 1 => 2,
-                _ => 3
+                10 => 3,
+                >= 6 => 2,
+                _ => 1
             };
         }
         

@@ -15,11 +15,6 @@ namespace Scenes.StoryMode.MenuScripts
 
         public Sprite starSprite;
 
-        private void Start()
-        {
-            //PlayerPrefs.DeleteAll();
-        }
-
         private void Update()
         {
             UpdateLevelImage();//TODO MOve this method later

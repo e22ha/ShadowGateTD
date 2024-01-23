@@ -10,13 +10,12 @@ public class LevelUI_Manager : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject pauseMenu;
     public GameObject pauseBtn;
-
-    private int currentStarsNum = 0;
+    
     public int levelIndex;
 
     public void pauseMenuOn()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
 
         pauseUI.SetActive(true);
         pauseBtn.SetActive(false);
@@ -24,7 +23,7 @@ public class LevelUI_Manager : MonoBehaviour
 
     public void pauseMenuOff()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
 
         settingsMenu.SetActive(false);
         pauseUI.SetActive(false);
@@ -50,22 +49,6 @@ public class LevelUI_Manager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void PressStarsButton(int starsNum)
-    {
-        currentStarsNum = starsNum;
-
-        if (currentStarsNum > PlayerPrefs.GetInt("Lv" + levelIndex))
-        {
-            PlayerPrefs.SetInt("Lv" + levelIndex, starsNum);
-        }
-
-        //MARKER Each level has saved their own stars number
-        //CORE PLayerPrefs.getInt("KEY", "VALUE"); We can use the KEY to find Our VALUE
-        Debug.Log(PlayerPrefs.GetInt("Lv" + levelIndex, starsNum));
-
-        goMain();
+        SceneTransition.SwitchToScene(SceneManager.GetActiveScene().name);
     }
 }
