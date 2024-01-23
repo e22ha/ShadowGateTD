@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "itemName": "SuperCoin",
+      "cost": 1,
+      "isPurchased": false
+    },
+    {
+      "itemName": "ExtraLife",
+      "cost": 1,
+      "isPurchased": false
+    },
+    {
+      "itemName": "FreezeEnemies",
+      "cost": 2,
+      "isPurchased": false
+    }
+  ]
+}
