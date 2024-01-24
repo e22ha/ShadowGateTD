@@ -9,7 +9,7 @@ namespace Scenes.StoryMode.LevelScripts
     {
         public GameObject WinWindow;
         public GameObject LoseWindow;
-
+        public Canvas canvasUI;
         public WaveSpawner waveSpawner;
         public PlayerStats playerStats;
         public int levelIndex;
@@ -72,8 +72,7 @@ namespace Scenes.StoryMode.LevelScripts
 
             Debug.Log(PlayerPrefs.GetInt("Lv" + levelIndex, starsNum));
 
-            Time.timeScale = 0f;
-
+            canvasUI.sortingOrder = 2;      
             WinWindow.SetActive(true);
         }
 
@@ -85,8 +84,7 @@ namespace Scenes.StoryMode.LevelScripts
 
             PlayerPrefs.SetInt("StarsTemp", 0);
 
-            Time.timeScale = 0f;
-
+            canvasUI.sortingOrder = 2;
             LoseWindow.SetActive(true);
         }
 

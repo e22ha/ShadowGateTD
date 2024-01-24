@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: InventoryShopConfig
   m_EditorClassIdentifier: 
   shopItems:
-  - itemName: Money
+  - itemName: Extra Money
     cost: 1
     isPurchased: 0
-  - itemName: Live
+  - itemName: Extra Health
     cost: 2
     isPurchased: 0
-  - itemName: Freez
+  - itemName: Time Freeze
     cost: 3
     isPurchased: 0
