@@ -103,7 +103,7 @@ namespace Scenes.StoryMode.LevelScripts
         {
             Destroy(gameObject);
             OnNotDefeated?.Invoke();
-            PlayerStats.UpdateLives(power);
+            PlayerStats.UpdateLives(-power);
         }
 
         public void Freeze()

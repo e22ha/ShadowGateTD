@@ -47,7 +47,7 @@ namespace Scenes.StoryMode.LevelScripts.Script
 
         public static void UpdateLives(int livePoint)
         {
-            Lives -= livePoint;
+            Lives += livePoint;
 
             // Update UI even if lives reach zero
             UpdateUI();
