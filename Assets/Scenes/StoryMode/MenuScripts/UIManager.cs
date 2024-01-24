@@ -4,15 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class UIManager : MonoBehaviour
 {
     public TMPro.TextMeshProUGUI starsText;
-    public TMPro.TextMeshProUGUI diamodsText;
+    public TMPro.TextMeshProUGUI diamondsText;
 
     private void Start()
     {
-        diamodsText.text = PlayerPrefs.GetInt("PlayerDiamonds").ToString();
+        diamondsText.text = PlayerPrefs.GetInt("PlayerDiamonds").ToString();
     }
 
     private void Update()

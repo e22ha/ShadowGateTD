@@ -95,7 +95,7 @@ namespace Scenes.StoryMode.LevelScripts
         {
             return remainingLives switch
             {
-                10 => 3,
+                >= 10 => 3,
                 >= 6 => 2,
                 _ => 1
             };
